@@ -1,0 +1,31 @@
+{
+  "name": "entipic.cdn",
+  "version": "0.0.1",
+  "description": "entipic CDN web app: cdn.entipic.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/entipic/entipic.cdn.git"
+  },
+  "keywords": [
+    "entipic",
+    "cdn"
+  ],
+  "author": "Dumitru Cantea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/entipic/entipic.cdn/issues"
+  },
+  "homepage": "https://github.com/entipic/entipic.cdn",
+  "dependencies": {
+    "express": "^4.13.0",
+    "body-parser": "^1.13.1",
+    "response-time": "^2.3.1",
+    "dotenv": "^1.2.0",
+    "morgan": "^1.6.0"
+  }
+}
