@@ -1,6 +1,6 @@
 {
   "name": "entipic.cdn",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "entipic CDN web app: cdn.entipic.com",
   "main": "index.js",
   "scripts": {
