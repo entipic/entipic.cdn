@@ -6,4 +6,4 @@ git pull
 #npm install new modules
 npm install
 #restart all processes
-forever restartall
+pm2 restart entipic-cdn
