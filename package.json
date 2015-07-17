@@ -33,6 +33,6 @@
     "request": "^2.58.0",
     "entipic.core": "^0.0.2",
     "entipic.data": "^0.0.4",
-    "entipic.text": "^0.0.2"
+    "entipic.text": "^0.0.3"
   }
 }
