@@ -4,6 +4,7 @@
   "description": "entipic CDN web app: cdn.entipic.com",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "exit 0",
     "lint": "eslint ."
   },
