@@ -1,3 +1,3 @@
-# entipic.cdn
+# news-image-proxy
 
-Entipic CDN/picture web application
+Ournet news image proxy server.
