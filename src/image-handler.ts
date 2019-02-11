@@ -50,7 +50,8 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 function sendEmptyImage(res: Response) {
     res.set({
         'content-type': 'image/png',
-        'content-length': EMPTY_IMAGE.length
+        'content-length': EMPTY_IMAGE.length,
+        'Cache-Control': 'public, max-age=1200',
     });
 
     res.send(EMPTY_IMAGE);
