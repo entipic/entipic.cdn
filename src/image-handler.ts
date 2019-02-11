@@ -59,6 +59,8 @@ function sendEmptyImage(res: Response) {
 function formatParams(req: Request): ImageHandlerParams {
     let refIP = (req.headers['x-forwarded-for'] || req.headers['x-real-ip']) as string || req.ip;
     refIP = refIP === '::1' ? '127.0.0.1' : refIP;
+    const parts = refIP.split(/,\s*/g);
+    refIP = parts[parts.length - 1];
     let refHost: string | undefined
     const referrer = req.get('referrer');
     if (referrer) {
