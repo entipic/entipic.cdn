@@ -23,11 +23,11 @@ export function handleImageId(id: string, format: PictureFormat, size: PictureSi
     }
     let instance = sharp();
     if (format !== originalFormat) {
-        instance = instance.toFormat(format);
+        instance = instance.toFormat(format, { quality: 100 });
     }
     if (size !== masterSizeName) {
         const newSize = PictureHelper.getPictureSize(size);
-        instance = instance.resize(newSize, newSize);
+        instance = instance.resize(newSize, newSize, { kernel: 'cubic' });
     }
 
     return sendImage(stream.pipe(instance), res, format);
