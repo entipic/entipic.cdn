@@ -48,14 +48,10 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 }
 
 function sendEmptyImage(res: Response) {
-    const date = new Date();
-    date.setDate(date.getDate() + 30);
-
     res.set({
         'content-type': 'image/png',
         'content-length': EMPTY_IMAGE.length,
-        'cache-control': 'public, max-age=1200',
-        'expires': date.toUTCString()
+        'cache-control': 'public, max-age=1200'
     });
 
     res.send(EMPTY_IMAGE);

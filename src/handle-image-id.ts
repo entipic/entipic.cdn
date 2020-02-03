@@ -36,9 +36,6 @@ export function handleImageId(id: string, format: PictureFormat, size: PictureSi
 function sendImage(stream: Duplex, res: Response, format: PictureFormat) {
     res.setHeader('content-type', getMime(format));
     res.setHeader('cache-control', 'public, max-age=2592000'); // 30 days
-    const date = new Date();
-    date.setDate(date.getDate() + 30);
-    res.setHeader('expires', date.toUTCString());
 
     stream.pipe(res);
 }
