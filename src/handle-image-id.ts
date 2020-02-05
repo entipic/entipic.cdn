@@ -12,8 +12,6 @@ export function handleImageId(id: string, format: PictureFormat, size: PictureSi
     const masterSizeName = 'f';
     const url = PictureHelper.formatS3Url(id);
 
-    res.setHeader('x-picture-id', id);
-
     const stream = got
         .stream(url, { timeout: 3000 })
         .on('error', error => next(error));
