@@ -32,10 +32,6 @@ export function handleImageId(
     instance = instance.resize(newSize, newSize, { kernel: "cubic" });
   }
 
-  // instance.once("readable", () => {
-  //   res.setHeader("content-length", instance.readableLength);
-  // });
-
   return sendImage(stream.pipe(instance), res, format);
 }
 
@@ -43,7 +39,11 @@ function sendImage(stream: Duplex, res: Response, format: PictureFormat) {
   res.setHeader("content-type", getMime(format));
   res.setHeader("cache-control", "public,max-age=2592000"); // 30 days
 
-  stream.pipe(res);
+  stream.on("data", chunk => {
+    res.setHeader("content-length", chunk.length);
+  });
+
+  stream.pipe(res, { end: true });
 }
 
 function getMime(format: PictureFormat) {
