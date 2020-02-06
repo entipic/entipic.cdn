@@ -18,7 +18,6 @@ export function handleImageId(
 
   const stream = got
     .stream(url, { timeout: 3000 })
-    // .on("end")
     .on("error", error => next(error));
 
   if (format === originalFormat && size === masterSizeName) {
@@ -33,9 +32,9 @@ export function handleImageId(
     instance = instance.resize(newSize, newSize, { kernel: "cubic" });
   }
 
-  instance.once("readable", () => {
-    res.setHeader("content-length", instance.readableLength);
-  });
+  // instance.once("readable", () => {
+  //   res.setHeader("content-length", instance.readableLength);
+  // });
 
   return sendImage(stream.pipe(instance), res, format);
 }
