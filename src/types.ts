@@ -1,4 +1,4 @@
-import { PictureSizeName } from "@entipic/domain";
+import { PictureSizeName } from "@entipic/domain"
 
 export type ImageHandlerParams = {
     id?: string

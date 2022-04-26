@@ -1,11 +1,11 @@
 import { Response, NextFunction } from "express";
 import sharp from "sharp";
-import got from "got";
+import axios from "axios";
 import { Duplex } from "stream";
-import { PictureSizeName, PictureHelper } from "@entipic/domain";
 import { PictureFormat } from "./types";
+import { PictureHelper, PictureSizeName } from "@entipic/domain";
 
-export function handleImageId(
+export async function handleImageId(
   id: string,
   format: PictureFormat,
   size: PictureSizeName,
@@ -15,24 +15,30 @@ export function handleImageId(
   const originalFormat = "jpg";
   const masterSizeName = "f";
   const url = PictureHelper.formatS3Url(id);
+  let stream: Duplex;
+  try {
+    const { data } = await axios(url, {
+      timeout: 3000,
+      responseType: "stream"
+    });
+    stream = data;
+  } catch (e) {
+    return next(e);
+  }
 
-  const stream = got
-    .stream(url, { timeout: { response: 3000 } })
-    .on("error", (error) => next(error));
-
-  if (format === originalFormat && size === masterSizeName) {
+  if (format === originalFormat && size === masterSizeName)
     return sendImage(stream, res, format);
-  }
+
   let instance = sharp();
-  if (format !== originalFormat) {
+  if (format !== originalFormat)
     instance = instance.toFormat(format, { quality: 100 });
-  }
+
   if (size !== masterSizeName) {
     const newSize = PictureHelper.getPictureSize(size);
     instance = instance.resize(newSize, newSize, { kernel: "cubic" });
   }
 
-  return sendImage(stream.pipe(instance as never), res, format);
+  return sendImage(stream.pipe(instance), res, format);
 }
 
 function sendImage(stream: Duplex, res: Response, format: PictureFormat) {
@@ -43,7 +49,7 @@ function sendImage(stream: Duplex, res: Response, format: PictureFormat) {
     res.setHeader("content-length", chunk.length);
   });
 
-  stream.pipe(res as never, { end: true });
+  stream.pipe(res, { end: true });
 }
 
 function getMime(format: PictureFormat) {

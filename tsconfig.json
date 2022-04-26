@@ -19,7 +19,7 @@
     "allowUnreachableCode": false,
     "exactOptionalPropertyTypes": false,
     "useUnknownInCatchVariables": false,
-    "allowJs": true,
+    "allowJs": false,
     "esModuleInterop": true,
     "lib": ["es2018", "esnext.asynciterable", "DOM"],
     "forceConsistentCasingInFileNames": true,
@@ -28,6 +28,6 @@
     "strict": true
   },
   "typeRoots": ["node_modules/@types", "node_modules/types", "src/typings"],
-  "exclude": ["node_modules"],
+  "exclude": [],
   "include": ["./src"]
 }
