@@ -82,11 +82,11 @@ function formatParams(req: Request): ImageHandlerParams {
   refIP = refIP === "::1" ? "127.0.0.1" : refIP;
   const parts = refIP.split(/,\s*/g);
   refIP = parts[parts.length - 1];
-  let refHost: string | undefined;
+  let refHost: string | undefined = undefined;
   const referrer = req.get("referrer");
   if (referrer) {
     const parsedUrl = parse(referrer);
-    refHost = parsedUrl.host || parsedUrl.hostname;
+    refHost = parsedUrl.host || parsedUrl.hostname || undefined;
   }
   let lang = req.params.lang || "en";
   if (lang === "md") {

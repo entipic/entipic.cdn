@@ -1,6 +1,6 @@
 import { Response, NextFunction } from "express";
-import * as sharp from "sharp";
-import * as got from "got";
+import sharp from "sharp";
+import got from "got";
 import { Duplex } from "stream";
 import { PictureSizeName, PictureHelper } from "@entipic/domain";
 import { PictureFormat } from "./types";
@@ -17,8 +17,8 @@ export function handleImageId(
   const url = PictureHelper.formatS3Url(id);
 
   const stream = got
-    .stream(url, { timeout: 3000 })
-    .on("error", error => next(error));
+    .stream(url, { timeout: { response: 3000 } })
+    .on("error", (error) => next(error));
 
   if (format === originalFormat && size === masterSizeName) {
     return sendImage(stream, res, format);
@@ -32,18 +32,18 @@ export function handleImageId(
     instance = instance.resize(newSize, newSize, { kernel: "cubic" });
   }
 
-  return sendImage(stream.pipe(instance), res, format);
+  return sendImage(stream.pipe(instance as never), res, format);
 }
 
 function sendImage(stream: Duplex, res: Response, format: PictureFormat) {
   res.setHeader("content-type", getMime(format));
   res.setHeader("cache-control", "public,max-age=2592000"); // 30 days
 
-  stream.on("data", chunk => {
+  stream.on("data", (chunk) => {
     res.setHeader("content-length", chunk.length);
   });
 
-  stream.pipe(res, { end: true });
+  stream.pipe(res as never, { end: true });
 }
 
 function getMime(format: PictureFormat) {

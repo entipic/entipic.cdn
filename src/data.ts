@@ -4,14 +4,14 @@ import {
   UniqueNameRepositoryBuilder,
   UnknownNameRepositoryBuilder
 } from "@entipic/data";
-
-import { connect, MongoClient } from "mongodb";
 import {
   PictureRepository,
   TopicRepository,
-  UnknownNameRepository,
-  UniqueNameRepository
+  UniqueNameRepository,
+  UnknownNameRepository
 } from "@entipic/domain";
+
+import { connect, MongoClient } from "mongodb";
 
 if (!process.env.ENTIPIC_CONNECTION) {
   throw `ENTIPIC_CONNECTION is required`;

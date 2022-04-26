@@ -1,9 +1,8 @@
 require("dotenv").config();
 
-import * as express from "express";
 import { logger } from "./logger";
 import imageHandler from "./image-handler";
-import { NextFunction, Response, Request } from "express";
+import express, { NextFunction, Response, Request } from "express";
 import { initData } from "./data";
 const cors = require("cors");
 const PORT = process.env.PORT;
@@ -57,11 +56,11 @@ async function start() {
   server.listen(PORT);
 }
 
-process.on("unhandledRejection", function(error: Error) {
+process.on("unhandledRejection", function (error: Error) {
   logger.error("unhandledRejection: " + error.message, error);
 });
 
-process.on("uncaughtException", function(error: Error) {
+process.on("uncaughtException", function (error: Error) {
   logger.error("uncaughtException: " + error.message, error);
 });
 
