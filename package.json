@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "@entipic/data": "^1.2.3",
-    "@entipic/domain": "^1.2.1",
+    "@entipic/domain": "^1.2.2",
     "axios": "^0.27.1",
     "cors": "^2.8.5",
     "debug": "^4.1.0",
