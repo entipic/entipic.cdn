@@ -31,7 +31,7 @@
     }
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=16.4.2"
   },
   "repository": {
     "type": "git",
@@ -51,7 +51,6 @@
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/mongodb": "^3.1.19",
-    "@types/node": "^17.0.27",
     "@types/sharp": "^0.29.5",
     "npm-watch": "^0.4.0",
     "rimraf": "^2.6.2",
@@ -59,7 +58,7 @@
   },
   "dependencies": {
     "@entipic/data": "^1.2.3",
-    "@entipic/domain": "^1.2.2",
+    "@entipic/domain": "^1.2.4",
     "axios": "^0.27.1",
     "cors": "^2.8.5",
     "debug": "^4.1.0",
