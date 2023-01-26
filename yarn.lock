@@ -69,10 +69,10 @@
     ms "^2.1.1"
     shortid "^2.2.14"
 
-"@entipic/domain@^1.2.7":
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/@entipic/domain/-/domain-1.2.7.tgz#5becf4d2018a6cf5b20f16ab1b86ab5b0db8c0d5"
-  integrity sha512-7upxT17HkVgKPwxNyfgmGaAdThwOqI+cinc8FPe65NvAibPKHtBxSgjcLXpEgMzC/bg9ViTzTW5ML6/qopNsGA==
+"@entipic/domain@^1.2.8":
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/@entipic/domain/-/domain-1.2.8.tgz#da2d757225cd7dfec391bc7cf118412bed6e8eca"
+  integrity sha512-/UyFkx2QetcKnBPZZYoARrp1841iaqn9fyKoWU/QtcCDc1uQlWj92f/aT7uJOhoGeoxvNFCI/rPwqvL9sESo5A==
   dependencies:
     atonic "^1.0.4"
     ava "~0.25.x"
