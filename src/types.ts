@@ -1,14 +1,14 @@
-import { PictureSizeName } from "@entipic/domain"
+import { PictureSizeName } from "@entipic/domain";
 
 export type ImageHandlerParams = {
-    id?: string
-    format: PictureFormat
-    name?: string
-    size: PictureSizeName
-    lang: string
-    country?: string
-    refIP: string
-    refHost?: string
-}
+  id?: string;
+  format: PictureFormat;
+  name?: string;
+  size: PictureSizeName;
+  lang: string;
+  country?: string;
+  refIP: string;
+  refHost?: string;
+};
 
-export type PictureFormat = 'jpg' | 'webp';
+export type PictureFormat = "jpg" | "webp";
