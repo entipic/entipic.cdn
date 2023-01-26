@@ -69,6 +69,17 @@
     ms "^2.1.1"
     shortid "^2.2.14"
 
+"@entipic/domain@^1.2.7":
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/@entipic/domain/-/domain-1.2.7.tgz#5becf4d2018a6cf5b20f16ab1b86ab5b0db8c0d5"
+  integrity sha512-7upxT17HkVgKPwxNyfgmGaAdThwOqI+cinc8FPe65NvAibPKHtBxSgjcLXpEgMzC/bg9ViTzTW5ML6/qopNsGA==
+  dependencies:
+    atonic "^1.0.4"
+    ava "~0.25.x"
+    joi "^17.6.0"
+    ms "^2.1.1"
+    shortid "^2.2.14"
+
 "@hapi/hoek@^9.0.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.3.0.tgz#8368869dcb735be2e7f5cb7647de78e167a251fb"
