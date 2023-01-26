@@ -57,7 +57,7 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "@entipic/data": "^1.2.4",
+    "@entipic/data": "^1.2.5",
     "@entipic/domain": "^1.2.8",
     "axios": "^0.27.1",
     "cors": "^2.8.5",

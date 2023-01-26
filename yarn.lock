@@ -49,25 +49,14 @@
   dependencies:
     arrify "^1.0.1"
 
-"@entipic/data@^1.2.4":
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/@entipic/data/-/data-1.2.4.tgz#692106d5b572b003d799c1d7563b290d69db6e24"
-  integrity sha512-ulM3nSkzJdG9PUrzW2r/J9wAUYUOB+Yj5Yrfd2lvlQMJnVQvNScgvI1IW4ap1wT5E0/2CUZEztJLoYu1lp+vAg==
+"@entipic/data@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@entipic/data/-/data-1.2.5.tgz#d68cc190e81cda7fcee65a7a6c7df6ad66ec33a3"
+  integrity sha512-T4DSc6Wd7KZEp3Pa2emTjWwuulyRl2RBdiZKAoyep4Rzl43ckskEf+MeYqq2UrvxZA5Bq+7vvYrYpW2PE5OlMg==
   dependencies:
-    "@entipic/domain" "^1.2.6"
+    "@entipic/domain" "^1.2.8"
     mongo-item "^0.1.0"
     mongodb "^3.1.13"
-
-"@entipic/domain@^1.2.6":
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/@entipic/domain/-/domain-1.2.6.tgz#9edbfea07a9dc74b617026f3a738871622d65bd6"
-  integrity sha512-qRhEt55NiKkpSDQqhpGpiN8vxYHkft0+0Cz5/vDy70RrdzJ16kykjZ+nRcv0jTQaCB+i0gFllFxAvKNVQQbeIQ==
-  dependencies:
-    atonic "^1.0.4"
-    ava "~0.25.x"
-    joi "^17.6.0"
-    ms "^2.1.1"
-    shortid "^2.2.14"
 
 "@entipic/domain@^1.2.8":
   version "1.2.8"
