@@ -11,7 +11,7 @@ import {
   UnknownNameRepository
 } from "@entipic/domain";
 
-import { connect, MongoClient } from "mongodb";
+import { MongoClient } from "mongodb";
 
 if (!process.env.ENTIPIC_CONNECTION) {
   throw `ENTIPIC_CONNECTION is required`;
@@ -28,7 +28,9 @@ export async function initData() {
   if (connection) {
     return;
   }
-  connection = await connect(process.env.ENTIPIC_CONNECTION || "");
+  connection = await new MongoClient(
+    process.env.ENTIPIC_CONNECTION || ""
+  ).connect();
   const db = connection.db();
   pictureRepository = PictureRepositoryBuilder.build(db);
   uniqueNameRepository = UniqueNameRepositoryBuilder.build(db);
