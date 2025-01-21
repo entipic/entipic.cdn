@@ -22,6 +22,9 @@ export default async (req: Request, res: Response, next: NextFunction) => {
     return next(new Error(`name is required!`));
   }
 
+  const log = params.name === "edwin hubble";
+  if (log) console.log(params);
+
   const ids = [
     UniqueNameHelper.createId({ name: params.name, lang: params.lang })
   ];
@@ -34,7 +37,9 @@ export default async (req: Request, res: Response, next: NextFunction) => {
       })
     );
   }
+  if (log) console.log("ids", ids);
   const unames = await uniqueNameRepository.getByIds(ids);
+  if (log) console.log("unames", unames);
 
   if (!unames.length) {
     try {
@@ -48,6 +53,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
         })
       );
     } catch (error) {
+      if (log) console.error(error);
       if (error.code !== 11000) {
         logger.error(error);
       }
@@ -55,6 +61,8 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
     return sendEmptyImage(res);
   }
+
+  if (log) console.error("sending pucture", unames[0].pictureId);
 
   return handleImageId(
     unames[0].pictureId,
@@ -97,7 +105,7 @@ function formatParams(req: Request): ImageHandlerParams {
   if (name) {
     name = name
       .replace(/[\s_-]/g, " ")
-      .replace(/\s{2,}/, " ")
+      .replace(/\s{2,}/g, " ")
       .trim();
   }
 
